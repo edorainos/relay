@@ -400,7 +400,9 @@ describe('RelayRecordSourceProxy', () => {
         name: 'Dog',
       },
     });
-    expect(backupSource.get('4')).toBe(markBackup); // Same record (referential equality).
+    // Same records (referential equality).
+    expect(backupSource.get('4')).toBe(markBackup);
+    expect(backupSource.get('660361306')).toBe(gregBackup);
     expect(backupSource.get('4')).toEqual(initialData['4']); // And not mutated.
     expect(backupSource.get('660361306')).toEqual({
       ...initialData['660361306'],
